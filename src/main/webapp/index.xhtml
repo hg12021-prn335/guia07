@@ -6,21 +6,21 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ez="http://xmlns.jcp.org/jsf/composite/ezcomp">
     <h:head>
-        <title>Categorias</title>
+        <title>Meta</title>
     </h:head>
     <h:body>
 
         <f:view>
             <h:form id="tabla">
-                <h1 align="center"><h:outputText value="Categorias"/></h1>
-                <p:dataTable value="#{frmCategoria.listaDatos}" var="item" paginator="true" rows="5" rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{frmCategoria.categoriaEntity}" rowKey="#{item.idCategoria}" >
-                    <p:ajax event="rowSelect" listener="#{frmCategoria.cambiarSeleccion()}" update=":formulario"/>
+                <h1 align="center"><h:outputText value="Meta"/></h1>
+                <p:dataTable value="#{frmMeta.listaDatos}" var="item" paginator="true" rows="5" rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{frmMeta.metaEntity}" rowKey="#{item.idMeta}" >
+                    <p:ajax event="rowSelect" listener="#{frmMeta.cambiarSeleccion()}" update=":formulario"/>
                     
-                    <p:column sortBy="#{item.idCategoria}">
+                    <p:column sortBy="#{item.idMeta}">
                         <f:facet name="header">
                             <h:outputText value="IdCategoria"/>
                         </f:facet>
-                        <h:outputText value="#{item.idCategoria}"/>
+                        <h:outputText value="#{item.idMeta}"/>
                     </p:column>
                     
                     <p:column>
@@ -52,31 +52,29 @@
                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                 <div align="left">
                     
-                    <ez:botones1 baking="#{frmCategoria}"/>
+                    <ez:botones1 baking="#{frmMeta}"/>
                     
-                <h:panelGrid columns="2" rendered="#{frmCategoria.btnadd}" cellpadding="10" >
+                    <h:panelGrid columns="2" rendered="#{frmMeta.btnadd}" cellpadding="10" >
                         
                         <p:outputLabel value="ID:" for="id" />
-                        <p:inputText id="id" value="#{frmCategoria.categoriaEntity.idCategoria}" title="ID" readonly="true"/>
+                        <p:inputText id="id" value="#{frmMeta.metaEntity.idMeta}" title="ID" readonly="true"/>
                         
                         <p:outputLabel value="Nombres:" for="nombres" />
-                        <p:inputText id="nombres" value="#{frmCategoria.categoriaEntity.nombre}" title="Nombres" required="true" requiredMessage="Los nombres son requeridos."/>
+                        <p:inputText id="nombres" value="#{frmMeta.metaEntity.nombre}" title="Nombres" required="true" requiredMessage="Los nombres son requeridos."/>
                         
                         <p:outputLabel value="Activo:" for="activo" />
-                        <p:selectBooleanCheckbox id="activo" value="#{frmCategoria.categoriaEntity.activo}" />
+                        <p:selectBooleanCheckbox id="activo" value="#{frmMeta.metaEntity.activo}" />
                         
                         <p:outputLabel value="Descripcion:" for="descripcion"/>
-                        <p:inputText id="descripcion" value="#{frmCategoria.categoriaEntity.descripcion}" title="Descripcion" />
+                        <p:inputText id="descripcion" value="#{frmMeta.metaEntity.descripcion}" title="Descripcion" />
                         
                 </h:panelGrid>
                           
-                    <ez:botones2 enti="#{frmCategoria}"/>
+                    <ez:botones2 enti="#{frmMeta}"/>
 
                 </div>
             </h:form>
         </f:view>
-        <br/>
-        <p align="left" style="size: 10px">jcsantos</p>
         
     </h:body>
 </html>

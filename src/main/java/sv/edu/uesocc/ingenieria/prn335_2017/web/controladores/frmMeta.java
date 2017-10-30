@@ -13,23 +13,24 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import org.primefaces.event.SelectEvent;
 import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.AbstractInterface;
-import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.CategoriaFacadeLocal;
-import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Categoria;
+
+import sv.edu.uesocc.ingenieria.prn335_2017.datos.acceso.MetaFacadeLocal;
+import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Meta;
 
 /**
  *
- * @author bryan
+ * @author juancarlos
  */
-@Named(value = "frmCategoria")
+@Named(value = "frmMeta")
 @ViewScoped
-public class frmCategoria extends GenericMB<Categoria> implements Serializable{
+public class frmMeta extends GenericMB<Meta> implements Serializable{
 
-    public frmCategoria() {
+    public frmMeta() {
     }
 
     @EJB
-    CategoriaFacadeLocal facade;
-    Categoria categoriaEntity;
+    MetaFacadeLocal facade;
+    Meta metaEntity;
     boolean btnVisible=false;
     
     boolean btnadd = false;
@@ -38,7 +39,7 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     
 
     // <editor-fold defaultstate="collapsed" desc="Getters y Setters">
-    public CategoriaFacadeLocal getFacade() {
+    public MetaFacadeLocal getFacade() {
         return facade;
     }
 
@@ -50,23 +51,23 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
         this.btnVisible = btnVisible;
     }
     
-    public void setFacade(CategoriaFacadeLocal facade) {
+    public void setFacade(MetaFacadeLocal facade) {
         this.facade = facade;
     }
 
-    public Categoria getCategoriaEntity() {
-        return categoriaEntity;
+    public Meta getMetaEntity() {
+        return metaEntity;
     }
 
-    public void setCategoriaEntity(Categoria categoriaEntity) {
-        this.categoriaEntity = categoriaEntity;
+    public void setMetaEntity(Meta metaEntity) {
+        this.metaEntity = metaEntity;
     }
 
-    public List<Categoria> getListaDatos() {
+    public List<Meta> getListaDatos() {
         return listaDatos;
     }
 
-    public void setListaDatos(List<Categoria> listaDatos) {
+    public void setListaDatos(List<Meta> listaDatos) {
         this.listaDatos = listaDatos;
     }
     
@@ -99,12 +100,12 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     
     // <editor-fold defaultstate="collapsed" desc="Overrrides">
     @Override
-    public Categoria getEntity() {
-        return categoriaEntity;
+    public Meta getEntity() {
+        return metaEntity;
     }
 
     @Override
-    protected AbstractInterface<Categoria> getFacadeLocal() {
+    protected AbstractInterface<Meta> getFacadeLocal() {
         return facade;
     }
 
@@ -113,7 +114,7 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
         super.editar();
         this.botones = false;
         this.botones2 = false;
-        this.btnadd = true;
+        this.btnadd = false;
         reiniciarValores();
     }
 
@@ -122,7 +123,7 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
         super.eliminar();
         this.botones = false;
         this.botones2 = false;
-        this.btnadd = true;
+        this.btnadd = false;
         reiniciarValores();
     }
 
@@ -144,24 +145,24 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     }
     
     public void btnCancelar() {
-        categoriaEntity = new Categoria();
+        metaEntity = new Meta();
         this.botones=false;
         this.btnadd=false;
         this.botones2=false;
     }
     
     public void nuevo(){
-    categoriaEntity = new Categoria();
+    metaEntity = new Meta();
     this.botones = true;
     this.btnadd = true;
     this.botones2=false;
     }
     
     public void reiniciarValores(){
-        categoriaEntity.setActivo(false);
-        categoriaEntity.setDescripcion(null);
-        categoriaEntity.setIdCategoria(null);
-        categoriaEntity.setNombre(null);
+        metaEntity.setActivo(false);
+        metaEntity.setDescripcion(null);
+        metaEntity.setIdMeta(null);
+        metaEntity.setNombre(null);
     }
     
     public void cambiarSeleccion() {

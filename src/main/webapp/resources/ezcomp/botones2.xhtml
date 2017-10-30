@@ -7,7 +7,7 @@
 
     <!-- INTERFACE -->
     <cc:interface>
-        <cc:attribute name="enti" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.frmCategoria" required="true"/>
+        <cc:attribute name="enti" type="sv.edu.uesocc.ingenieria.prn335_2017.web.controladores.frmMeta" required="true"/>
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
@@ -17,19 +17,19 @@
                              validateClient="true" ajax="true"
                              update="@form :tabla"
                              resetValues="true"
-                             rendered="#{frmCategoria.botones}"
+                             rendered="#{frmMeta.botones}"
                              actionListener="#{cc.attrs.enti.crear()}"/>
 
             <p:commandButton value="Eliminar" icon="ui-icon-trash"
                              validateClient="true" ajax="true"
                              update="@form :tabla"
-                             rendered="#{frmCategoria.botones2}"
+                             rendered="#{frmMeta.botones2}"
                              actionListener="#{cc.attrs.enti.eliminar()}"/>
 
             <p:commandButton value="Modificar" icon="ui-icon-pencil"
                              validateClient="true" ajax="true"
                              update="@form :tabla"
-                             rendered="#{frmCategoria.botones2}"
+                             rendered="#{frmMeta.botones2}"
                              actionListener="#{cc.attrs.enti.editar()}"/> 
         </h:panelGrid>
     </cc:implementation>
