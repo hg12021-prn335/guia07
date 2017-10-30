@@ -3,13 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ezcomp">
     <h:head>
         <title>Categorias</title>
     </h:head>
     <h:body>
 
-        <f:view >
+        <f:view>
             <h:form id="tabla">
                 <h1 align="center"><h:outputText value="Categorias"/></h1>
                 <p:dataTable value="#{frmCategoria.listaDatos}" var="item" paginator="true" rows="5" rowsPerPageTemplate="5,10,15" selectionMode="single" selection="#{frmCategoria.categoriaEntity}" rowKey="#{item.idCategoria}" >
@@ -51,20 +52,7 @@
                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                 <div align="left">
                     
-                    <h:panelGrid columns="2" cellpadding = "10">  
-                    <p:commandButton value="Nuevo"
-                                     validateClient="true" ajax="true"
-                                     update="@form :tabla"
-                                     disabled="false" resetValues="true"
-                                     actionListener="#{frmCategoria.nuevo()}"
-                                     immediate="true"/>
-                    <p:commandButton value="Cancelar" icon="ui-icon-cancel"
-                                     validateClient="true" ajax="true"
-                                     update="@form :tabla"
-                                     disabled="false" resetValues="true"
-                                     actionListener="#{frmCategoria.btnCancelar()}"
-                                     immediate="true"/>
-                    </h:panelGrid>
+                    <ez:botones1 baking="#{frmCategoria}"/>
                     
                 <h:panelGrid columns="2" rendered="#{frmCategoria.btnadd}" cellpadding="10" >
                         
@@ -82,26 +70,7 @@
                         
                 </h:panelGrid>
                           
-                <h:panelGrid columns="2" cellpadding="10" >   
-                    <p:commandButton value="Guardar" icon="ui-icon-disk"
-                                     validateClient="true" ajax="true"
-                                     update="@form :tabla"
-                                     resetValues="true"
-                                     rendered="#{frmCategoria.botones}"
-                                     actionListener="#{frmCategoria.crear()}"/>
-                                     
-                  <p:commandButton value="Eliminar" icon="ui-icon-trash"
-                                     validateClient="true" ajax="true"
-                                     update="@form :tabla"
-                                     rendered="#{frmCategoria.botones2}"
-                                     actionListener="#{frmCategoria.eliminar()}"/>
-                    
-                    <p:commandButton value="Modificar" icon="ui-icon-pencil"
-                                     validateClient="true" ajax="true"
-                                     update="@form :tabla"
-                                     rendered="#{frmCategoria.botones2}"
-                                     actionListener="#{frmCategoria.editar()}"/> 
-                 </h:panelGrid>
+                    <ez:botones2 enti="#{frmCategoria}"/>
 
                 </div>
             </h:form>

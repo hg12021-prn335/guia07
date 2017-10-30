@@ -31,11 +31,12 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     CategoriaFacadeLocal facade;
     Categoria categoriaEntity;
     boolean btnVisible=false;
+    
     boolean btnadd = false;
     boolean botones = false;
     boolean botones2 = false;
-
     
+
     // <editor-fold defaultstate="collapsed" desc="Getters y Setters">
     public CategoriaFacadeLocal getFacade() {
         return facade;
@@ -92,8 +93,8 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     public void setBotones2(boolean botones2) {
         this.botones2 = botones2;
     }
-
     
+
     // </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="Overrrides">
@@ -145,7 +146,7 @@ public class frmCategoria extends GenericMB<Categoria> implements Serializable{
     public void btnCancelar() {
         categoriaEntity = new Categoria();
         this.botones=false;
-        this.btnadd=true;
+        this.btnadd=false;
         this.botones2=false;
     }
     

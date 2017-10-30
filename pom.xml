@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sv.edu.uesocc.ingenieria.prn335.2017</groupId>
-    <artifactId>guia06</artifactId>
+    <artifactId>guia07</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>guia06</name>
+    <name>guia07</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
